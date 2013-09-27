@@ -7,7 +7,7 @@ gem 'sass'
 gem 'datamapper'
 gem 'dm-postgres-adapter'
 gem 'database_cleaner'
-# gem 'bcrypt-ruby'
+gem 'bcrypt-ruby'
 
 
 group:development, :test do
