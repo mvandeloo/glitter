@@ -4,16 +4,10 @@ Peeps for sheeps:
 
 <ul>
   <% @peeps.each do |peep| %>
-    <li><%= peep.status %></li>
+    <li><%= peep.status %> by <%= peep.name %> (<%= peep.username %>) </li>
   <% end %>
 </ul>
 
-<div id="new-peep">
-  <form action="/peeps" method="post">
-    Your little peep show: <input type="text" name="status">
-    <input type="submit" value="add peep!">
-  </form>
-</div>
 
 
 

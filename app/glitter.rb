@@ -1,10 +1,10 @@
 require 'sinatra'
 require 'sinatra/base'
 require 'data_mapper'
-require './lib/peep'
 require 'rack-flash'
 use Rack::Flash
 require './lib/user'
+require './lib/peep'
 require_relative 'helpers/application'
 require_relative 'data_mapper_setup'
 
@@ -30,7 +30,9 @@ end
 
 post '/peeps' do
   status = params["status"]
-  Peep.create(:status => status)
+  username = params["username"]
+  name = params["name"]
+  @peep = Peep.create(:status => status, :username => username, :name => name)
   redirect to('/')
 end
 
@@ -46,8 +48,6 @@ post '/users' do
     erb :"users/new"
   end
 end
-
-
 
 
 
@@ -68,5 +68,3 @@ delete '/sessions' do
   session[:user_id] = nil
   redirect to('/')
 end
-
-
