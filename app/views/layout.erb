@@ -11,7 +11,7 @@
       <input type="hidden" name="_method" value="delete">
       <input type="submit" value="Sign out">
     </form>
-    <% end %>
+
     <div id="new-peep">
       <form action="/peeps" method="post">
         Your little peep show: 
@@ -21,6 +21,7 @@
         <input type="submit" value="add peep!">
       </form>
     </div>
+    <% end %>
   	<% if flash[:notice] %>
 		  <div id="notice">
 		  	<%= flash[:notice] %>

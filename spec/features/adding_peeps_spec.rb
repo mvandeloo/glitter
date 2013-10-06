@@ -1,7 +1,15 @@
 require 'spec_helper'
 
 feature "User adds a new peep" do
+
+  before(:each) do
+    User.create(:email => "alice@example.com", 
+                :password => 'test',
+                :password_confirmation => 'test')
+  end
+
   scenario "when browsing the homepage" do
+    sign_in('alice@example.com', 'test')
     expect(Peep.count).to eq(0)
     visit '/'
 
@@ -13,9 +21,9 @@ feature "User adds a new peep" do
 
   def add_peep(status)
     within('#new-peep') do
-      fill_in 'status', :with => status
-      fill_in 'name', :with => name
-      fill_in 'username', :with => username
+      fill_in 'status', :with => "Pepp"
+      fill_in 'name', :with => "Alex"
+      fill_in 'username', :with => "alex"
       click_button 'add peep!'
     end      
   end
